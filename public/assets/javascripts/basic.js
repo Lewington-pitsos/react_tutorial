@@ -12,11 +12,12 @@ const main = document.getElementById('main')
 ReactDOM.render(
   <BrowserRouter>
     <div>
-      <Layout />
-      <Route exact path ="/" component={Featured}>
-      </Route>
-      <Route path ="/archive" component={Archive}>
-      </Route>
+      <Layout>
+        <Route exact path ="/" component={Featured}>
+        </Route>
+        <Route path ="/archive" component={Archive}>
+        </Route>
+      </Layout>
     </div>
   </BrowserRouter>
   , main);
