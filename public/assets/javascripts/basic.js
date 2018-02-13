@@ -14,7 +14,7 @@ ReactDOM.render(
     <div>
       <Layout>
         <Route exact path="/" component={Featured} />
-        <Route path="/archive/:article" component={Archive} />
+        <Route path="/archive/:article?" component={Archive} />
       </Layout>
     </div>
   </BrowserRouter>
