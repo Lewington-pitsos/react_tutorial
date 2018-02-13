@@ -17141,7 +17141,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! tether 1.4
 
 
 
-
 const main = document.getElementById('main');
 
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_Layout_js__["a" /* default */], null), main);
@@ -23747,22 +23746,117 @@ module.exports = camelize;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Header__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Footer__ = __webpack_require__(43);
+
+
 
 
 class Layout extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   constructor() {
     super(); // so that the parent obejct/class is initialized properly whenever we initialize this object/class
-    this.name = "FUCK";
+    this.state = { message: 'FUCK', mossage: 'lol' };
   }
+
+  changeTitle(title) {
+    this.setState({ mossage: title });
+  }
+
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "h1",
+      'div',
       null,
-      this.name
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Header__["a" /* default */], { changeTitle: this.changeTitle.bind(this), title: this.state.mossage }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'p',
+        null,
+        this.state.message + 'wooot'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Footer__["a" /* default */], null)
     );
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Layout;
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Header_Title_js__ = __webpack_require__(44);
+
+
+// we store all components that are rendered b the Header component in the local Header folder
+
+class Header extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  updateTitle(event) {
+    this.props.changeTitle(event.target.value);
+  }
+
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'header',
+      null,
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Header_Title_js__["a" /* default */], { text: this.props.title }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { value: this.props.title, onChange: this.updateTitle.bind(this) })
+    );
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Header;
+
+
+/***/ }),
+/* 43 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+class Footer extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'footer',
+      null,
+      'footer'
+    );
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Footer;
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+class Title extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { className: "title" },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "h1",
+        null,
+        this.props.text
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "p",
+        null,
+        "It's a thing "
+      )
+    );
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Title;
 
 
 /***/ })
