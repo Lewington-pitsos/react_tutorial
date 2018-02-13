@@ -13,10 +13,8 @@ ReactDOM.render(
   <BrowserRouter>
     <div>
       <Layout>
-        <Route exact path ="/" component={Featured}>
-        </Route>
-        <Route path ="/archive" component={Archive}>
-        </Route>
+        <Route exact path="/" component={Featured} />
+        <Route path="/archive/:article" component={Archive} />
       </Layout>
     </div>
   </BrowserRouter>

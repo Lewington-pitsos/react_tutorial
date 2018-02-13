@@ -17161,7 +17161,7 @@ __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
       __WEBPACK_IMPORTED_MODULE_3__components_pages_Layout__["a" /* default */],
       null,
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_5__components_pages_Featured__["a" /* default */] }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/archive', component: __WEBPACK_IMPORTED_MODULE_4__components_pages_Archive__["a" /* default */] })
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/archive/:article', component: __WEBPACK_IMPORTED_MODULE_4__components_pages_Archive__["a" /* default */] })
     )
   )
 ), main);
@@ -29057,7 +29057,7 @@ class Layout extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-        { to: '/archive' },
+        { to: '/archive/lol' },
         'Archive'
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -29088,6 +29088,7 @@ class Layout extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 class Archive extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   render() {
+    console.log(this.props.match.params.article);
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,
@@ -29095,6 +29096,11 @@ class Archive extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         'h2',
         null,
         'Archive'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'p',
+        null,
+        this.props.match.params.article
       )
     );
   }
