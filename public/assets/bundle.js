@@ -29178,8 +29178,26 @@ class Archive extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 
 class Featured extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  constructor() {
+    super();
+    var articles = [{
+      title: 'haopy',
+      text: 'Very good tutorial series on react. I learnt not only reactjs, but this tutorial helped me understand creating a good build',
+      id: 1
+    }, {
+      title: 'sdhashd',
+      text: 'environment. I am implementing this on laravel framework and things are going good. Waiting for flux integration.﻿',
+      id: 3
+    }, {
+      title: 'hasdsad dsadasds',
+      text: 'Very good tutorial series on react. I learnt not only reactjs, but this tutorial helped me understand creating a good build environment. I am implementing this on laravel framework and things are going good. Waiting for flux integration.﻿',
+      id: 2
+    }].map(art => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Featured_Article__["a" /* default */], { key: art.id, title: art.title, text: art.text }));
+
+    this.state = { articles: articles };
+  }
+
   render() {
-    const articles = ["dowx", "fdffdx", "doffdfswx", "dogsgdswx"].map((title, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Featured_Article__["a" /* default */], { key: index, title: title }));
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,
@@ -29190,8 +29208,8 @@ class Featured extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { className: 'container' },
-        articles
+        { className: 'container p-4 mb-4 mt-4' },
+        this.state.articles
       )
     );
   }
@@ -29224,7 +29242,8 @@ class Article extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           "p",
           null,
-          "Very good tutorial series on react. I learnt not only reactjs, but this tutorial helped me understand creating a good build environment. I am implementing this on laravel framework and things are going good. Waiting for flux integration.\uFEFF"
+          this.props.text,
+          "\uFEFF"
         )
       )
     );
