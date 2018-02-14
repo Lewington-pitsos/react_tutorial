@@ -52,5 +52,4 @@ class ArticleStore extends EventEmitter {
 const articleStore = new ArticleStore;
 
 dispatcher.register(articleStore.handleActions.bind(articleStore))
-window.dispatcher = dispatcher
 export default articleStore;

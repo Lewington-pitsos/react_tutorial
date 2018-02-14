@@ -29320,7 +29320,6 @@ class ArticleStore extends __WEBPACK_IMPORTED_MODULE_0_events__["EventEmitter"] 
 const articleStore = new ArticleStore();
 
 __WEBPACK_IMPORTED_MODULE_1__dispatcher__["a" /* default */].register(articleStore.handleActions.bind(articleStore));
-window.dispatcher = __WEBPACK_IMPORTED_MODULE_1__dispatcher__["a" /* default */];
 /* harmony default export */ __webpack_exports__["a"] = (articleStore);
 
 /***/ }),
