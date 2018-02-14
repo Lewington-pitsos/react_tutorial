@@ -1,4 +1,7 @@
 import {EventEmitter} from 'events'; // 'events is like, part of nodejs'
+
+import dispatcher from '../dispatcher'
+
 class ArticleStore extends EventEmitter {
   constructor() {
     super()
@@ -25,6 +28,15 @@ class ArticleStore extends EventEmitter {
     return this.articles;
   }
 
+  handleActions(action) {
+    console.log('lolol action', action);
+    switch(action.type) {
+      case "CREATE_ARTICLE": {
+        this.createArticle('flooby dooby', 'helped me understand creating a good build environment. I am implementing this on')
+      }
+    }
+  }
+
   createArticle(title, text) {
     this.articles.push({
       title: title,
@@ -39,6 +51,6 @@ class ArticleStore extends EventEmitter {
 
 const articleStore = new ArticleStore;
 
+dispatcher.register(articleStore.handleActions.bind(articleStore))
+window.dispatcher = dispatcher
 export default articleStore;
-
-window.articleStore = articleStore
