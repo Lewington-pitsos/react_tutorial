@@ -29173,10 +29173,13 @@ class Archive extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Featured_Article__ = __webpack_require__(92);
+
 
 
 class Featured extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   render() {
+    const articles = ["dowx", "fdffdx", "doffdfswx", "dogsgdswx"].map((title, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Featured_Article__["a" /* default */], { key: index, title: title }));
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,
@@ -29184,11 +29187,50 @@ class Featured extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         'h2',
         null,
         'Featured'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'container' },
+        articles
       )
     );
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Featured;
+
+
+/***/ }),
+/* 92 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+class Article extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { className: "row justify-content-center" },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "col-8" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "h3",
+          null,
+          this.props.title
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "p",
+          null,
+          "Very good tutorial series on react. I learnt not only reactjs, but this tutorial helped me understand creating a good build environment. I am implementing this on laravel framework and things are going good. Waiting for flux integration.\uFEFF"
+        )
+      )
+    );
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Article;
 
 
 /***/ })
