@@ -29174,7 +29174,9 @@ class Archive extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Featured_Article__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Stores_ArticleStore__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Actions_ArticleActions__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Stores_ArticleStore__ = __webpack_require__(93);
+
 
 
 
@@ -29184,13 +29186,17 @@ class Featured extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   constructor() {
     super();
 
-    this.state = { articles: __WEBPACK_IMPORTED_MODULE_2__Stores_ArticleStore__["a" /* default */].getAll() };
+    this.state = { articles: __WEBPACK_IMPORTED_MODULE_3__Stores_ArticleStore__["a" /* default */].getAll() };
   }
 
   componentWillMount() {
-    __WEBPACK_IMPORTED_MODULE_2__Stores_ArticleStore__["a" /* default */].on('change', () => {
-      this.setState({ articles: __WEBPACK_IMPORTED_MODULE_2__Stores_ArticleStore__["a" /* default */].getAll() });
+    __WEBPACK_IMPORTED_MODULE_3__Stores_ArticleStore__["a" /* default */].on('change', () => {
+      this.setState({ articles: __WEBPACK_IMPORTED_MODULE_3__Stores_ArticleStore__["a" /* default */].getAll() });
     });
+  }
+
+  createArticle() {
+    __WEBPACK_IMPORTED_MODULE_2__Actions_ArticleActions__["a" /* default */].createArticle('lol', 'fffffffffffdsfsd fsd sd fds fsfd ');
   }
 
   render() {
@@ -29208,6 +29214,11 @@ class Featured extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         'div',
         { className: 'container p-4 mb-4 mt-4' },
         articleComponents
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'button',
+        { onClick: this.createArticle.bind(this) },
+        'Create Article'
       )
     );
   }
@@ -29289,7 +29300,7 @@ class ArticleStore extends __WEBPACK_IMPORTED_MODULE_0_events__["EventEmitter"] 
     switch (action.type) {
       case "CREATE_ARTICLE":
         {
-          this.createArticle('flooby dooby', 'helped me understand creating a good build environment. I am implementing this on');
+          this.createArticle(action.title, action.text);
         }
     }
   }
@@ -29849,6 +29860,24 @@ var Dispatcher = function () {
 
 module.exports = Dispatcher;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 98 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dispatcher__ = __webpack_require__(95);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  createArticle(title, text) {
+    dispatcher.dispatch({
+      type: 'CREATE_ARTICLE',
+      text: text,
+      title: title
+    });
+  }
+});
 
 /***/ })
 /******/ ]);

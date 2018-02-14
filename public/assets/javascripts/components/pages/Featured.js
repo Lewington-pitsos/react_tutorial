@@ -1,6 +1,7 @@
 import React from 'react'
 import Article from './Featured/Article'
 
+import ArticleActions from '../Actions/ArticleActions'
 import articleStore from '../Stores/ArticleStore'
 
 export default class Featured extends React.Component {
@@ -16,6 +17,10 @@ export default class Featured extends React.Component {
     })
   }
 
+  createArticle() {
+    ArticleActions.createArticle('lol', 'fffffffffffdsfsd fsd sd fds fsfd ')
+  }
+
   render() {
     const articleComponents = this
       .state
@@ -28,6 +33,7 @@ export default class Featured extends React.Component {
         <div className="container p-4 mb-4 mt-4">
           {articleComponents}
         </div>
+        <button onClick={this.createArticle.bind(this)}>Create Article</button>
        </div>
     );
   }

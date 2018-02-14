@@ -32,7 +32,7 @@ class ArticleStore extends EventEmitter {
     console.log('lolol action', action);
     switch(action.type) {
       case "CREATE_ARTICLE": {
-        this.createArticle('flooby dooby', 'helped me understand creating a good build environment. I am implementing this on')
+        this.createArticle(action.title, action.text);
       }
     }
   }
