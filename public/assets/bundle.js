@@ -29187,6 +29187,12 @@ class Featured extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     this.state = { articles: __WEBPACK_IMPORTED_MODULE_2__Stores_ArticleStore__["a" /* default */].getAll() };
   }
 
+  componentWillMount() {
+    __WEBPACK_IMPORTED_MODULE_2__Stores_ArticleStore__["a" /* default */].on('change', () => {
+      this.setState({ articles: __WEBPACK_IMPORTED_MODULE_2__Stores_ArticleStore__["a" /* default */].getAll() });
+    });
+  }
+
   render() {
     const articleComponents = this.state.articles.map(art => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Featured_Article__["a" /* default */], { key: art.id, title: art.title, text: art.text }));
 
@@ -29274,11 +29280,23 @@ class ArticleStore extends __WEBPACK_IMPORTED_MODULE_0_events__["EventEmitter"] 
     return this.articles;
   }
 
+  createArticle(title, text) {
+    this.articles.push({
+      title: title,
+      text: text,
+      id: Date.now
+    });
+
+    this.emit('change');
+  }
+
 }
 
 const articleStore = new ArticleStore();
 
 /* harmony default export */ __webpack_exports__["a"] = (articleStore);
+
+window.articleStore = articleStore;
 
 /***/ }),
 /* 94 */

@@ -10,6 +10,12 @@ export default class Featured extends React.Component {
     this.state = {articles: articleStore.getAll()};
   }
 
+  componentWillMount() {
+    articleStore.on('change', () => {
+      this.setState({articles: articleStore.getAll() })
+    })
+  }
+
   render() {
     const articleComponents = this
       .state

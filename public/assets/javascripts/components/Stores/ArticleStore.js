@@ -25,8 +25,20 @@ class ArticleStore extends EventEmitter {
     return this.articles;
   }
 
+  createArticle(title, text) {
+    this.articles.push({
+      title: title,
+      text: text,
+      id: Date.now
+    })
+
+    this.emit('change');
+  }
+
 }
 
 const articleStore = new ArticleStore;
 
 export default articleStore;
+
+window.articleStore = articleStore
